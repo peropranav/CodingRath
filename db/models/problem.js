@@ -1,21 +1,18 @@
 var mongoose = require('mongoose');
 
-
-mongoose.connect('mongodb://localhost/codingrath');
-
-var db = mongoose.connection;
-var ProblemSchema = mongoose.Schema({
+const Schema = mongoose.Schema;
+var problemSchema = new Schema({
     ques_Id:{
-        type: number
+        type: Number
     },
     ques_label:{
-        type: String,
+        type: String
     },
     statement:{
         type: String
     } ,
     constraints:{
-        type:string
+        type:String
     },
     input_Format:{
         type:String
@@ -45,3 +42,5 @@ var ProblemSchema = mongoose.Schema({
         type:String
     }
 });
+
+module.exports=mongoose.model('problem', problemSchema);

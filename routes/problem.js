@@ -2,7 +2,7 @@
 var express=require('express');
 var app=express();
 const router = require('express').Router();
-const User=require('../db/user')
+const problem=require('../db/models/problem')
 
 
 
@@ -23,36 +23,36 @@ router.get('/:tag/:id',function (req,res) {
 
 
                 {
-                    ques_Id:
+                    ques_Id:"hi sample"
                 },
 
                 {
-                    ques_label:
+                    ques_label:"hi sample"
                 },
 
                 {
-                    difficulty_level:
+                    difficulty_level:"hi sample"
 
                 },
                 {
-                    statement:
+                    statement:"hi sample"
                 },
                 {
-                    constraints:
+                    constraints:"hi sample"
                 },
                 {
-                    input_format :
+                    input_format :"hi sample"
                 },
                 {
-                    output_format:
+                    output_format:"hi sample"
 
                 },
 
                 {
-                    sample_Input:
+                    sample_Input:"hi sample"
                 },
                 {
-                    sample_Output:
+                    sample_Output:"hi sample"
                 }
             ]
         }
@@ -60,3 +60,5 @@ router.get('/:tag/:id',function (req,res) {
 
         );
 })
+
+module.exports=router;
