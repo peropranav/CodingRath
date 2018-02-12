@@ -5,7 +5,9 @@ const router = require('express').Router();
 const problem=require('./problem')
 
 
-
+router.get('/addcodingproblem', function(req, res, next) {
+        res.render('addcodingproblem', {  });
+});
 router.get('/:tag/:id',function (req,res) {
     console.log('function call');
     var tag=req.params.tag;

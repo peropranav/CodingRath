@@ -1,37 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</head>
+<body >
 <div class="container">
     <div class="row">
         <div class="col-md-4">
             <div class="form_main">
-                <h4 class="heading"><strong>Quick </strong> Contact <span></span></h4>
-                <div class="form">
-                    <form action="contact_send_mail.php" method="post" id="contactFrm" name="contactFrm">
+                <h4 class="heading"><strong>Add </strong> Coding Problem <span></span></h4>
+                <div class="form" >
+                    <form  method="post" action='/problem/addcodingproblem' name="codingProblem">
                         <div class="form-group">
                             <label for="exampleInputUsername">Problem label</label>
-                            <input type="text" required="" placeholder="Problem label" value="" name="label" class="txt">
+                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername">Problem Statement</label>
-                            <input type="text" required="" placeholder="Problem statement" value="" name="statement" class="txt">
+                            <textarea placeholder="Problem statement" name="statement" type="text" class="txt_3"></textarea>
+
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername">Problem Constraints</label>
-                            <input type="text" required="" placeholder="Problem constraints" value="" name="constraints" class="txt">
+                            <textarea placeholder="Problem constraints" name="constraints" type="text" class="txt_3"></textarea>
+
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername">Input Format</label>
+                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
                             <input type="text" required="" placeholder="Input Format" value="" name="input-format" class="txt">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername">Output Format</label>
-                            <input type="text" required="" placeholder="Output Format" value="" name="output-format" class="txt">
+                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
+
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername">Sample Input</label>
-                            <input type="text" required="" placeholder="Sample Input" value="" name="sample-input" class="txt">
+                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputUsername">Sample Input</label>
-                            <input type="text" required="" placeholder="Sample Output" value="" name="sample-output" class="txt">
+                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
                         </div>
                         <div class="form-group">
                             <div class="dropdown">
@@ -67,3 +81,5 @@
         </div>
     </div>
 </div>
+</body>
+</html>
