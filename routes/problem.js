@@ -2,26 +2,18 @@
 var express=require('express');
 var app=express();
 const router = require('express').Router();
-const problem=require('../db/models/problem')
+const problem=require('./problem')
 
 
 
 router.get('/:tag/:id',function (req,res) {
+    console.log('function call');
     var tag=req.params.tag;
     var id=req.params.id;
-
-
-
-
-
-
     res.render('problem.ejs',
-
 
         {
             basic: [
-
-
                 {
                     ques_Id:"hi sample"
                 },

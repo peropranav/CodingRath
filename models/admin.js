@@ -14,7 +14,7 @@ var AdminSchema = mongoose.Schema({
     password: {
         type: String
     },
-    email: {
+    emailId: {
         type: String
     }
 

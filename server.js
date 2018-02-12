@@ -1,6 +1,7 @@
 var express=require('express');
 var app=express();
 var bodyParser=require('body-parser');
+var path = require('path');
 const port=process.env.PORT || 3000;
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/codingRath');
@@ -11,9 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 
-var problem=require('../routes/problem');
+var problem=require('./routes/problem');
 
-
+app.set('views', path.join(__dirname, 'views'));
 app.use('/problem',problem);
 
 
