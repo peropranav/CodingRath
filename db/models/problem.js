@@ -17,13 +17,13 @@ var ProblemSchema = mongoose.Schema({
     constraints:{
         type:string
     },
-    input_format:{
+    input_Format:{
         type:String
     },
-    output_format:{
+    output_Format:{
         type:String
     },
-    Sample_Input:{
+    sample_Input:{
         type: String
     },
     sample_Output:{
@@ -35,13 +35,13 @@ var ProblemSchema = mongoose.Schema({
     tag:{
         type:String
     },
-    test_cases:{
+    test_Cases:{
         type:String
     },
     solution:{
         type:String
     },
-    code_stub:{
+    code_Stub:{
         type:String
     }
 });
