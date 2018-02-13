@@ -13,7 +13,9 @@
     "express-validators": "^1.0.4",
     "mongoose": "^4.13.11",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "passport-local": "*",
+    "path": "^0.12.7",
+    "mongodb": "*",
+    "bcryptjs": "*"
   }
 }
