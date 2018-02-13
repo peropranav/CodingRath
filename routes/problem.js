@@ -4,14 +4,19 @@ var app=express();
 const router = require('express').Router();
 const Problem=require('../models/Problem')
 
-router.get('/addcodingproblem', function(req, res, next) {
-    res.render('addcodingproblem', {  });
+router.get('/add-coding-problem', function(req, res, next) {
+    res.render('add-coding-problem', {  });
 });
 
+router.get('/', function(req, res, next) {
+    var db = req.db;
+    var problems = db.get('problem');
+    problems.find({}, {}, function(err, posts){
+        res.render('index', { problems: problems });
+    });
+});
 
-
-router.post('/addcodingproblem', function(req, res, next) {
-    // console.log(req.body);
+router.post('/add-coding-problem', function(req, res, next) {
     var ques_label = req.body.ques_label;
     var   statement= req.body.statement;
     var  constraint= req.body.constraint;
@@ -47,8 +52,8 @@ router.post('/addcodingproblem', function(req, res, next) {
             console.log(problem);
         })
 
-        res.location('/problem/addcodingproblem');
-        res.redirect('/problem/addcodingproblem')
+        res.location('/problem/add-coding-problem');
+        res.redirect('/problem/add-coding-problem')
     }
 });
 
@@ -56,11 +61,10 @@ router.post('/addcodingproblem', function(req, res, next) {
 
 
 
-router.get('/:tag/:id',function (req,res) {
+router.get('/view-single-problem/:id',function (req,res) {
     var tag=req.params.tag;
     var id=req.params.id;
-    res.render('problem.ejs',
-
+    res.render('view-single-problem.ejs',
 
         {
             basic: [

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+if problems
+each problem, i in problems
+.problems
+h1
+a(href='/problems/show/#{problem._id}')
+=problem.label
+p.meta Posted in
+a(href='/categories/show/#{problem.tag}') #{problem.tag}
+!=truncateText(problem.statement,400)
+a.more(href='/problem/show/#{problem._id}')
