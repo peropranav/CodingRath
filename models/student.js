@@ -14,6 +14,9 @@ var studentSchema = new Schema({
     },
     email_Id:{
         type: String
+    },
+    mobile_Number:{
+        type: Number
     }
 });
 
