@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://localhost/codingRath');
+
+var db = mongoose.connection;
+
 const Schema = mongoose.Schema;
 var problemSchema = new Schema({
     ques_Id:{
@@ -44,4 +48,15 @@ var problemSchema = new Schema({
 });
 
 
-module.exports=mongoose.model('problem', problemSchema);
+var Problem = module.exports=mongoose.model('Problem', problemSchema);
+
+module.exports.createProblem = function(newProblem, callback){
+    newProblem.save(callback);
+}
+
+
+
+module.exports.getProblemById = function(problemId, callback){
+    console.log(Problem.findById(problemId, callback));
+}
+
