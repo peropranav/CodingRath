@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="398e7cdd-7879-437a-b37c-c165778384e7" name="Default" comment="">
 <<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/addcodingproblem.ejs" afterPath="$PROJECT_DIR$/views/addcodingproblem.ejs" />
 =======
       <change type="DELETED" beforePath="$PROJECT_DIR$/db/models/admin.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/db/models/problem.js" afterPath="" />
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -114,9 +118,14 @@
       <file leaf-file-name="addcodingproblem.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/addcodingproblem.ejs">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="298">
+              <caret line="76" column="23" lean-forward="false" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+=======
             <state relative-caret-position="283">
               <caret line="75" column="52" lean-forward="true" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
               <folding />
             </state>
           </provider>
@@ -182,7 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,6 +213,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,17 +322,26 @@
       <workItem from="1518429791148" duration="5888000" />
 =======
       <workItem from="1518429791148" duration="4724000" />
+<<<<<<< HEAD
+      <workItem from="1518435875280" duration="610000" />
+      <workItem from="1518454836689" duration="8000" />
+=======
       <workItem from="1518435875280" duration="60000" />
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+    <option name="totallyTimeSpent" value="9034000" />
+=======
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="9580000" />
 =======
     <option name="totallyTimeSpent" value="8476000" />
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -363,31 +381,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/problem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html/signup.html">
+    <entry file="file://$PROJECT_DIR$/views/addcodingproblem.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -395,11 +389,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/problem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/problem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -407,7 +428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -415,9 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <marker date="1518435135809" expanded="true" signature="72:1558" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -433,7 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -441,7 +457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="6" lean-forward="true" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -449,7 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -458,7 +472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -467,7 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -476,7 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -485,7 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -500,8 +510,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+<<<<<<< HEAD
+=======
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
           <folding />
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
         </state>
       </provider>
     </entry>
@@ -513,8 +526,11 @@
 =======
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+<<<<<<< HEAD
+=======
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
           <folding />
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
         </state>
       </provider>
     </entry>
@@ -526,16 +542,24 @@
 =======
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+<<<<<<< HEAD
+=======
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
           <folding />
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/problem.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="44" />
+=======
         <state relative-caret-position="409">
           <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
         </state>
       </provider>
     </entry>
@@ -548,15 +572,22 @@
 =======
         <state relative-caret-position="165">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+<<<<<<< HEAD
+=======
           <folding>
             <marker date="1518435135809" expanded="true" signature="72:1558" ph="{...}" />
           </folding>
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/addcodingproblem.ejs">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="298">
+          <caret line="76" column="23" lean-forward="false" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+=======
 <<<<<<< HEAD
         <state relative-caret-position="415">
           <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
@@ -564,6 +595,7 @@
         <state relative-caret-position="283">
           <caret line="75" column="52" lean-forward="true" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
 >>>>>>> 86b59d28a1ad19914f5ace2ce03ff19a45c2fd94
+>>>>>>> da2b2b9aa297c0d0b665aaea9a7703a32d348dd9
           <folding />
         </state>
       </provider>

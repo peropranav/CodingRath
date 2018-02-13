@@ -1,80 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<title>Adding Problem</title>
 </head>
-<body >
-<div class="container">
+<body>
+<!-- .navbar start -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">CodingRath</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Problem of the Day</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- /.navbar -->
+
+<div class="container-fluid mainBigDiv">
     <div class="row">
-        <div class="col-md-4">
-            <div class="form_main">
-                <h4 class="heading"><strong>Add </strong> Coding Problem <span></span></h4>
-                <div class="form" >
-                    <form  method="post" action='/problem/addcodingproblem' name="codingProblem">
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Problem label</label>
-                            <textarea placeholder="Label" name="label" type="text" class="txt_3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Problem Statement</label>
-                            <textarea placeholder="Statement" name="statement" type="text" class="txt_3"></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Problem Constraints</label>
-                            <textarea placeholder="Constraints" name="constraints" type="text" class="txt_3"></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Input Format</label>
-                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Output Format</label>
-                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
+        <div class="col-lg-6 col-xs-0"></div>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Sample Input</label>
-                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputUsername">Sample Input</label>
-                            <textarea placeholder="Problem label" name="label" type="text" class="txt_3"></textarea>
-                        </div>
+        <div class="col-lg-6 col-xs-12">
+<form method="post" action="/problem/addcodingproblem">
 
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Difficulty Level
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
+    <div class="row" >
+        <div class="col-lg-10 offset-lg-2">
 
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Tag
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Array</a>
-                                    <a class="dropdown-item" href="#">LinkedList</a>
-                                    <a class="dropdown-item" href="#">Dynamic Programming</a>
-                                </div>
-                            </div>
-                        <input type="submit" value="submit" name="submit" class="txt2">
-                    </form>
-                </div>
-            </div>
+            <h1>Submit Your Problem</h1>
         </div>
     </div>
+
+
+
+<div class="row">
+    <div class="col-lg-12 offset-lg-1 col-xs-12">
+        <label >Question Label</label> <br><input type="text" name="ques_label" style="height: 50px; width: 60%">
+    </div>
 </div>
+
+
+    <div class="row">
+        <div class="col-lg-5 offset-lg-1">
+            <label>Difficulty Level</label><br>
+            <select style="height: 30px;width: 100px;background-color:antiquewhite">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Difficult">Difficult</option>
+
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12 offset-lg-1">
+            <label>Statement</label><br><input type="text" name="statement"  style="height: 100px; width: 60%">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-5 offset-lg-1">
+            <label>Constraints</label><br><input type="text" name="constraint" class="smallStuff" >
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-5 offset-lg-1">
+            <label>Input Format</label><br><input type="text" name="input_Format" class="smallStuff">
+
+        </div>
+
+        <div class="col-lg-3">
+            <label>Output Format</label><br><input type="text" name="output_Format" class="smallStuff">
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-lg-5 offset-lg-1">
+            <label>Sample Input</label><br><input type="text" name="sample_Input" class="smallStuff">
+
+        </div>
+
+
+        <div class="col-lg-3">
+            <label>Sample Output</label><br><input type="text" name="sample_Output" class="smallStuff">
+
+        </div>
+
+    </div>
+            <br>
+
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4  col-xs-8 offset-xs-4">
+                    <button type="submit" class="btn btn-primary">Submit Your Problem</button>
+                </div>
+            </div>
+
+
+
+<br>
+</form>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
 </body>
 </html>

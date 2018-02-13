@@ -9,6 +9,18 @@ router.get('/addcodingproblem', function(req, res, next) {
 });
 
 
+
+router.post('/addcodingproblem', function(req, res, next) {
+    console.log(req.body);
+
+
+    res.render('addcodingproblem');
+});
+
+
+
+
+
 router.get('/:tag/:id',function (req,res) {
     var tag=req.params.tag;
     var id=req.params.id;
