@@ -2,18 +2,23 @@
 var express=require('express');
 var app=express();
 const router = require('express').Router();
-const Problem=require('../models/Problem')
+const Problem=require('../models/Problem');
 var AWS = require('aws-sdk');
+AWS.config.loadFromPath('./AwsConfig.json');
 var fs =  require('fs');
 var s3 = new AWS.S3();
-var myBucket = 'njera';
-var myKey = 'jpeg';
+var RATH_STUB_BUCKET = 'rathstubfiles';
+var RATH_MAIN_BUCKET = 'rathmainfiles';
+var RATH_TESTCASE_BUCKET = 'rathtestcases';
 var multer = require('multer');
-var upload = multer({ dest: './public/images' })
+var upload = multer({ dest: './uploads' });
+var AWSAccessKeyId="AKIAIQVR26OY5AR6JWMQ";
+var AWSSecretKey="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";
 
 router.get('/add-coding-problem', function(req, res, next) {
     res.render('add-coding-problem', {  });
 });
+
 
 router.get('/', function(req, res, next) {
     var db = req.db;
@@ -24,32 +29,59 @@ router.get('/', function(req, res, next) {
 });
 
 send_to_amazon=function(file_path, bucket){
-    fs.readFile('demo.jpg', function (err, data) {
+    console.log('SEND TO AMAZON')
+    fs.readFile(file_path, function (err, data) {
+        console.log('SEND TO AMAMAMA')
         if (err) { throw err; }
-        params = {Bucket: myBucket, Key: myKey, Body: data };
+        params = {Bucket: RATH_TESTCASE_BUCKET, Key: AWSSecretKey, Body: data };
         s3.putObject(params, function(err, data) {
             if (err) {
                 console.log(err)
             } else {
                 console.log("Successfully uploaded data to myBucket/myKey");
+                console.log(data);
             }
         });
     });
-}
-router.post('/add-coding-problem',upload.single('testcase.zip'), function(req, res, next) {
+};
+
+router.post('/add-coding-problem',upload.single('testcases'), function(req, res, next) {
     if(req.file){
-        var testcasesFileName = req.file.filename
+        /** When using the "single"
+         data come in "req.file" regardless of the attribute "name". **/
+        var tmp_path = req.file.path;
+
+        console.log(tmp_path)
+        /** The original name of the uploaded file
+         stored in the variable "originalname". **/
+        var target_path = 'uploads/' + req.file.originalname;
+
+        console.log(target_path)
+        /** A better way to copy the uploaded file. **/
+        var src = fs.createReadStream(tmp_path);
+        var dest = fs.createWriteStream(target_path);
+        src.pipe(dest);
+
+
+
+        var testcasesFileName = req.file.filename;
+
         // upload testcases to S3 bucket
-        send_to_amazon(file_path, ENV['RATH_TESTCASES_BUCKET'])
+        var testcaseS3Link = send_to_amazon(target_path, RATH_TESTCASE_BUCKET)
         //update problem with s3 link
         // upload maincode to S3 bucket
-        send_to_amazon(file_path, ENV['RATH_MAINCASES_BUCKET'])
+        var mainS3Link = send_to_amazon(target_path, RATH_MAIN_BUCKET)
         // update problem with S3 link in problem
         // upload scaffold to S3 bucket
-        send_to_amazon(file_path, ENV['RATH_CASES_BUCKET'])
+        var stubS3Link= send_to_amazon(target_path, RATH_STUB_BUCKET)
         // update scaffold with S3 link in problem
-    } else {
 
+         console.log(testcasesFileName);
+         console.log(mainS3Link);
+         console.log(stubS3Link);
+
+    } else {
+        console.log("ANKUR")
     }
     var ques_label = req.body.ques_label;
     var   statement= req.body.statement;
