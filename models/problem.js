@@ -36,13 +36,16 @@ var problemSchema = new Schema({
     tag:{
         type:String
     },
-    test_Cases:{
+    test_Cases_s3path:{
         type:String
     },
-    solution:{
+    solution_s3path:{
         type:String
     },
-    code_Stub:{
+    mainFile_S3Path:{
+        type:String
+    },
+    stub_s3path:{
         type:String
     }
 });

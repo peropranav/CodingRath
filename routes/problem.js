@@ -44,10 +44,10 @@ router.post('/add-coding-problem',upload.single('testcase.zip'), function(req, r
         //update problem with s3 link
         // upload maincode to S3 bucket
         send_to_amazon(file_path, ENV['RATH_MAINCASES_BUCKET'])
-        // update problem with S3 link
-        // upload maincode to S3 bucket
+        // update problem with S3 link in problem
+        // upload scaffold to S3 bucket
         send_to_amazon(file_path, ENV['RATH_CASES_BUCKET'])
-        // update problem with S3 link
+        // update scaffold with S3 link in problem
     } else {
 
     }
