@@ -3,6 +3,13 @@ var express=require('express');
 var app=express();
 const router = require('express').Router();
 const Problem=require('../models/Problem')
+var AWS = require('aws-sdk');
+var fs =  require('fs');
+var s3 = new AWS.S3();
+var myBucket = 'njera';
+var myKey = 'jpeg';
+var multer = require('multer');
+var upload = multer({ dest: './public/images' })
 
 router.get('/add-coding-problem', function(req, res, next) {
     res.render('add-coding-problem', {  });
@@ -16,7 +23,34 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/add-coding-problem', function(req, res, next) {
+send_to_amazon=function(file_path, bucket){
+    fs.readFile('demo.jpg', function (err, data) {
+        if (err) { throw err; }
+        params = {Bucket: myBucket, Key: myKey, Body: data };
+        s3.putObject(params, function(err, data) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("Successfully uploaded data to myBucket/myKey");
+            }
+        });
+    });
+}
+router.post('/add-coding-problem',upload.single('testcase.zip'), function(req, res, next) {
+    if(req.file){
+        var testcasesFileName = req.file.filename
+        // upload testcases to S3 bucket
+        send_to_amazon(file_path, ENV['RATH_TESTCASES_BUCKET'])
+        //update problem with s3 link
+        // upload maincode to S3 bucket
+        send_to_amazon(file_path, ENV['RATH_MAINCASES_BUCKET'])
+        // update problem with S3 link
+        // upload maincode to S3 bucket
+        send_to_amazon(file_path, ENV['RATH_CASES_BUCKET'])
+        // update problem with S3 link
+    } else {
+
+    }
     var ques_label = req.body.ques_label;
     var   statement= req.body.statement;
     var  constraint= req.body.constraint;
@@ -24,7 +58,6 @@ router.post('/add-coding-problem', function(req, res, next) {
     var  output_Format= req.body.output_Format;
     var  sample_Input= req.body.sample_Input;
     var  sample_Output= req.sample_Output;
-
     // Form Validator
     req.checkBody('ques_label','Name field is required').notEmpty();
     req.checkBody('statement','Email field is required').notEmpty();
@@ -56,9 +89,6 @@ router.post('/add-coding-problem', function(req, res, next) {
         res.redirect('/problem/add-coding-problem')
     }
 });
-
-
-
 
 
 router.get('/view-single-problem/:id',function (req,res) {

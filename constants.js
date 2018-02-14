@@ -1,0 +1,1 @@
+module.exports.PROBLEM_TYPE_CODE = 'CODE' ;
