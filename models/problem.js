@@ -12,6 +12,9 @@ var problemSchema = new Schema({
     ques_label:{
         type: String
     },
+    difficulty_level:{
+        type:String
+    },
     statement:{
         type: String
     } ,
@@ -30,9 +33,7 @@ var problemSchema = new Schema({
     sample_Output:{
         type:String
     },
-    difficulty_level:{
-        type:String
-    },
+
     tag:{
         type:String
     },
@@ -53,9 +54,7 @@ var problemSchema = new Schema({
 
 var Problem = module.exports=mongoose.model('Problem', problemSchema);
 
-module.exports.createProblem = function(newProblem, callback){
-    newProblem.save(callback);
-}
+
 
 
 

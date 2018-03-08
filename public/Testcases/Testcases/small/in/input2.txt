@@ -1,6 +1,0 @@
-4 3
-zia
-fib
-ccj
-rbd
-ca

@@ -49,16 +49,15 @@
 
 <br>
 <div class="container-fluid">
-    <%for(var i=0;i<1;i++){%>
+    <%var n=problem.length%>
+    <%for(var i=0;i<n;i++){%>
     <div class="row">
         <div class="col-lg-6 offset-lg-3" style="height: 120px;background-color: white">
-            <h3 style="font-family: Roboto,sans-serif;font-weight: 500;letter-spacing:.43px;margin-top: 2%;font-size: 19px;"><%=problemListPara[0].ques_label%></h3>
-            <span style="font-size: 13px;">LEVEL</span>&nbsp;<span style="font-weight: 600;font-size: 13px;"><%=problemListPara[1].difficulty_level%></span>
+            <h3 style="font-family: Roboto,sans-serif;font-weight: 500;letter-spacing:.43px;margin-top: 2%;font-size: 19px;"><%=problem[i].ques_label%></h3>
+            <span style="font-size: 13px;">LEVEL</span>&nbsp;<span style="font-weight: 600;font-size: 13px;"><%=problem[i].difficulty_level%></span>
 
             <br>
-
-            <%var id=problemListPara[2].ques_Id%>
-            <a href="/problem/view-single-problem/<%=problemListPara[2].ques_Id%>">
+            <a href="/problem/view-single-problem/<%=problem[i]._id%>">
               <button class="btn btn-success" style="background-color: seashell;color: black;font-weight: 600;font-size: 15px;padding: 1%;float: right;">Solve</button>
           </a>
         </div>

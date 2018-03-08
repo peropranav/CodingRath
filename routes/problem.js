@@ -12,13 +12,19 @@ var RATH_MAIN_BUCKET = 'rathmainfiles';
 var RATH_TESTCASE_BUCKET = 'rathtestcases';
 var multer = require('multer');
 var upload = multer({ dest: './uploads' });
-var AWSAccessKeyId="AKIAJRHA5PHQONVI6HFQ";
-const exec = require('child_process').exec;
+var AWSAccessKeyId="AKIAIQVR26OY5AR6JWMQ";
+var AWSSecretKey="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";
 
 router.get('/add-coding-problem', function(req, res, next) {
     res.render('add-coding-problem', {  });
 });
 
+
+router.post('/view-single-problem/:id',function (req,res) {
+
+
+
+})
 
 router.get('/', function(req, res, next) {
     var db = req.db;
@@ -31,87 +37,100 @@ router.get('/', function(req, res, next) {
 send_to_amazon=function(file_path, bucket){
     console.log('SEND TO AMAZON')
     fs.readFile(file_path, function (err, data) {
+        console.log('SEND TO AMAMAMA')
         if (err) { throw err; }
-        params = {Bucket: RATH_TESTCASE_BUCKET, Key: AWSAccessKeyId, Body: data };
+        params = {Bucket: RATH_TESTCASE_BUCKET, Key: AWSSecretKey, Body: data };
         s3.putObject(params, function(err, data) {
             if (err) {
                 console.log(err)
             } else {
-                console.log("Successfully uploaded data to "+bucket);
+                console.log("Successfully uploaded data to myBucket/myKey");
                 console.log(data);
             }
         });
     });
 };
 
-router.post('/add-coding-problem',upload.fields([{ name: 'testcases', maxCount: 1}, { name: 'mainfile', maxCount: 1},
-    { name: 'stubfile', maxCount: 1 } ]), function(req, res, next) {
-
+router.post('/add-coding-problem',upload.single('testcases'), function(req, res, next) {
+    if(req.file){
         /** When using the "single"
          data come in "req.file" regardless of the attribute "name". **/
+        var tmp_path = req.file.path;
 
-        var testcaseFile = req.files['testcases'][0];
-        if(testcaseFile){
-            var target_path = 'uploads/' + testcaseFile.originalname;
-            var tmp_path = testcaseFile.path;
-            var src = fs.createReadStream(tmp_path);
-            var dest = fs.createWriteStream(target_path);
-            src.pipe(dest);
-            var testcaseS3Link = send_to_amazon(target_path, RATH_TESTCASE_BUCKET)
-        }
+        console.log(tmp_path)
+        /** The original name of the uploaded file
+         stored in the variable "originalname". **/
+        var target_path = 'uploads/' + req.file.originalname;
 
-        var mainFile = req.files['mainfile'][0];
-        if(mainFile){
-            var target_path = 'uploads/' + mainFile.originalname;
-            var src = fs.createReadStream(tmp_path);
-            var dest = fs.createWriteStream(target_path);
-            src.pipe(dest);
-            var testcaseS3Link = send_to_amazon(target_path, RATH_MAIN_BUCKET)
-        }
-
-        var stubFile = req.files['stubfile'][0];
-        if(stubFile){
-            var target_path = 'uploads/' + stubFile.originalname;
-            var src = fs.createReadStream(tmp_path);
-            var dest = fs.createWriteStream(target_path);
-            src.pipe(dest);
-            var testcaseS3Link = send_to_amazon(target_path, RATH_STUB_BUCKET)
-        }
+        console.log(target_path)
+        /** A better way to copy the uploaded file. **/
+        var src = fs.createReadStream(tmp_path);
+        var dest = fs.createWriteStream(target_path);
+        src.pipe(dest);
 
 
+
+        var testcasesFileName = req.file.filename;
+
+        // upload testcases to S3 bucket
+        var testcaseS3Link = send_to_amazon(target_path, RATH_TESTCASE_BUCKET)
+        //update problem with s3 link
+        // upload maincode to S3 bucket
+        var mainS3Link = send_to_amazon(target_path, RATH_MAIN_BUCKET)
+        // update problem with S3 link in problem
+        // upload scaffold to S3 bucket
+        var stubS3Link= send_to_amazon(target_path, RATH_STUB_BUCKET)
+        // update scaffold with S3 link in problem
+
+         console.log(testcasesFileName);
+         console.log(mainS3Link);
+         console.log(stubS3Link);
+
+    } else {
+        console.log("ANKUR")
+    }
     var ques_label = req.body.ques_label;
     var   statement= req.body.statement;
     var  constraint= req.body.constraint;
     var  input_Format= req.body.input_Format;
     var  output_Format= req.body.output_Format;
     var  sample_Input= req.body.sample_Input;
-    var  sample_Output= req.sample_Output;
+    var  sample_Output= req.body.sample_Output;
+   var difficulty_level=req.body.difficulty_level;
     // Form Validator
     req.checkBody('ques_label','Name field is required').notEmpty();
-    req.checkBody('statement','Email field is required').notEmpty();
-    req.checkBody('constraint','Email is not valid').notEmpty();
-    req.checkBody('sample_Input','Username field is required').notEmpty();
-    req.checkBody('sample_Output','Password field is required').notEmpty();
+    req.checkBody('difficulty_level','Level field is required').notEmpty();
+    req.checkBody('statement','Statement field is required').notEmpty();
+    req.checkBody('constraint','Constraint is not valid').notEmpty();
 
 
+    req.checkBody('input_Format','input_format field is required').notEmpty();
+    req.checkBody('output_Format','output_format field is required').notEmpty();
+
+    req.checkBody('sample_Input','sample_input field is required').notEmpty();
+    req.checkBody('sample_Output','sample_output field is required').notEmpty();
+
+
+console.log(req.body);
     var errors = req.validationErrors();
     if(errors){
 
     }else{
         var new_Problem = new Problem({
             ques_label:ques_label,
+            difficulty_level: difficulty_level,
             statement:statement,
             constraint: constraint,
             input_Format: input_Format,
             output_Format: output_Format,
             sample_Input: sample_Input,
             sample_Output: sample_Output
-        })
-        Problem.createProblem(new_Problem,function(err, problem){
-            if(err)
-                throw err;
-            console.log(problem);
-        })
+        }).save().then((newProblem) => {
+            console.log('created new user: ', newProblem);
+        done(null, newProblem);
+
+
+    })
 
         res.location('/problem/add-coding-problem');
         res.redirect('/problem/add-coding-problem')
@@ -121,91 +140,53 @@ router.post('/add-coding-problem',upload.fields([{ name: 'testcases', maxCount: 
 
 router.get('/view-problem-list',function (req,res) {
 
-    res.render('view-problem-list.ejs',
-        {
-            problemListPara:[
-                {
-                    ques_label:"Merge Two Linked List"
+    Problem.find({}, function (err, problem) {
+       if(err)
+       {
+           console.log("some error occured")
+       }
+       else
 
-                },
-                {
-                    difficulty_level:"EASY"
+           {
+               console.log(problem)
+             //  console.log(problem[0]._id)
 
+               res.render('view-problem-list.ejs',
+                   {
+                    problem:problem
+                   })
 
-                },
-                {
-                    ques_Id:"101"
-                }
-            ]
-
+           }
         })
-})
+
+
+
+
+    })
+
 
 
 router.get('/view-single-problem/:id',function (req,res) {
-    console.log(__dirname);
-    var executeScript = exec('sh ../public/Testcases/OutputFilesGenerator.sh',
-        (error, stdout, stderr) => {
-            console.log(`${stdout}`);
-            console.log(`${stderr}`);
-            if (error !== null) {
-                console.log(`exec error: ${error}`);
-            }
-        });
+    var tag = req.params.tag;
+    var id = req.params.id;
 
-    var tag=req.params.tag;
-    var id=req.params.id;
-    res.render('view-single-problem.ejs',
+    Problem.findById({_id: req.params.id}, function (err, singleProblem) {
 
-        {
-            basic: [
-
-
-                {
-                    ques_Id: "101"
-                },
-
-                {
-                    ques_label: "Merge Two Linked List"
-                },
-
-                {
-                    difficulty_level: "EASY"
-
-                },
-                {
-                    statement: "After getting her PhD, Christie has become a celebrity at her university, and her facebook profile is full of friend requests. Being the nice girl she is, Christie has accepted all the requests.\n" +
-                    "\n" +
-                    "Now Kuldeep is jealous of all the attention she is getting from other guys, so he asks her to delete some of the guys from her friend list.\n" +
-                    "\n" +
-                    "To avoid a 'scene', Christie decides to remove some friends from her friend list, since she knows the popularity of each of the friend she has, she uses the following algorithm to delete a friend."
-                },
-                {
-                    constraints: "1<=T<=1000"
-                },
-                {
-                    input_format: "3 100 1"
-                },
-                {
-                    output_format: "19 12 17 "
-
-                },
-
-                {
-                    sample_Input: "8 9 20 76"
-                },
-                {
-                    sample_Output: "67 4 5 34 "
-                }
-            ]
+        if (err) {
+            console.log("some  fucking error occured")
         }
-    );
+        else {
+            console.log(singleProblem)
 
+            res.render('view-single-problem.ejs', {singleProblem: singleProblem})
+
+
+        }
+
+
+    })
 
 })
-
-
-
 
 
 module.exports=router;
