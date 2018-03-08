@@ -1,4 +1,4 @@
-
+var fs = require('fs');
 var express=require('express');
 var app=express();
 const router = require('express').Router();
@@ -21,7 +21,18 @@ router.get('/add-coding-problem', function(req, res, next) {
 
 
 router.post('/view-single-problem/:id',function (req,res) {
+var idPar=req.params.id;
+    var code=req.body.code;
 
+
+            fs.writeFile('mynewfile3.java', code, function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+            });
+
+
+
+res.redirect('/problem/view-problem-list')
 
 
 })

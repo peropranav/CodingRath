@@ -118,7 +118,7 @@
     <form method="post" action="view-single-problem.ejs">
     <div class="row" style="margin-top: 1%" >
         <div class="col-lg-12">
-            <textarea class="codemirror-textarea"></textarea>
+            <textarea class="codemirror-textarea" name="code"></textarea>
 
         </div>
     </div>
@@ -128,7 +128,7 @@
     <div class="col-lg-6"></div>
 
     <div class="col-lg-4" style="margin-top: 1%">
-        <a href="/problem/view-single-problem" > <button class="btn btn-primary">Submit</button> </a>
+        <a href="/<%=singleProblem.ques_Id%>" > <button class="btn btn-primary">Submit</button> </a>
     </div>
 </div>
 
